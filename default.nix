@@ -1,11 +1,9 @@
-# { pythonPackages, fetchgit }:
-with import <nixpkgs> {};
-with pythonPackages;
+{ pythonPackages, sh, fetchgit }:
 
 # TODO patch to use the ortholang tmpdir for downloads rather than /tmp?
 # TODO update patch to comment out validate_dbs, import sh lines too
 
-buildPythonPackage {
+pythonPackages.buildPythonPackage {
   name = "blastdbget";
   # version = "98ba28";
   prefix = "";
@@ -15,6 +13,6 @@ buildPythonPackage {
   #  sha256 = "0kfhqf03b52v5bbyi8rjx4lp1ncgvmy5fbzdbvgjnf7jzbpgzvvb";
   #};
   src = ./.;
-  propagatedBuildInputs = [ sh ];
+  propagatedBuildInputs = [ sh ]; # TODO remove?
   patches = ./blastdbget-no-validate-dbs.patch;
 }
