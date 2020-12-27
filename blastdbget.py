@@ -21,7 +21,7 @@ import time
 import urllib
 
 from contextlib import contextmanager
-from sh import blastdbcheck, ErrorReturnCode
+# from sh import blastdbcheck, ErrorReturnCode
 from tempfile import mkdtemp
 from threading import Thread
 from Queue import Queue
